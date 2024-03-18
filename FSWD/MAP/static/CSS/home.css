@@ -1,0 +1,33 @@
+.front {
+    width: 93vw;
+    height: 89vh;
+    display: flex;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.front img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 50px;
+}
+
+.map-area {
+    outline: none; 
+    transition: transform 0.3s ease-in-out; 
+    display: block; 
+}
+
+.map-area:hover {
+    transform: scale(1.2); 
+    filter: blur(5px);
+    z-index: 1; 
+    cursor: pointer;
+    border: 2px solid red;
+}

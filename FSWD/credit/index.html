@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Validator</title>
+
+    <style>
+        #main {
+            background-color: aliceblue;
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 150px;
+          }
+          input{
+            background-color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+          }
+          button{
+            background-color: white;
+            padding: 9px;
+            border-radius: 10px;
+          }
+      
+          /* Style for Result */
+          #result {
+            margin-top: 20px;
+            font-weight: bold;
+          }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>Credit Card Validator</h1>
+        <form action="post">
+            <input type="number" name="card" id="card" placeholder="Enter your card number">
+            <button type="button" onclick="validateCard()">Check</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        function isValidCreditCard(cardNumber) {
+
+            if (cardNumber.length < 13 || cardNumber.length > 19) {
+                return { isValid: false, cardType: null };
+            }
+
+            let cardType;
+            let firstTwoDigits = parseInt(cardNumber.substring(0, 2));
+
+            if (cardNumber.charAt(0) === "4") {
+                cardType = "Visa";
+            } else if (firstTwoDigits >= 51 && firstTwoDigits <= 55) {
+                cardType = "MasterCard";
+            } else if (firstTwoDigits === 34 || firstTwoDigits === 37) {
+                cardType = "American Express";
+            } else {
+                cardType = "Unknown";
+            }
+
+            
+            return { isValid:true, cardType: cardType };
+        }
+
+        function validateCard() {
+            const cardInput = document.getElementById("card");
+            const resultDiv = document.getElementById("result");
+
+            const cardNumber = cardInput.value;
+            const { isValid, cardType } = isValidCreditCard(cardNumber);
+
+            if (isValid) {
+                resultDiv.innerText = `Valid ${cardType} credit card number!`;
+            } else {
+                resultDiv.innerText = "Invalid credit card number!";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        .form{
+            background-color: aliceblue;
+            height: 500px;
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 150px;
+        }
+        .d1{
+            background-color: aliceblue;
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+        }
+        .d2{
+            background-color: aliceblue;
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 10px;
+        }
+        .d1 input{
+            background-color: white;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+        .d2 input{
+            background-color: white;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+        button{
+            background-color: white;
+            margin-top: 20px;
+            padding: 9px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <h1>Form Validation</h1>
+        <form id="main" action="post">
+            <div class="d1">
+                <label for="name">Full Name:</label>
+                <input type="name" placeholder="Enter your full name"><br>
+                <label for="Birth">Birth Date:</label>
+                <input type="date" placeholder="Enter your birth date"><br>
+                <label for="gender">Gender:</label>
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female<br>
+                <label for="address">Address:</label>
+                <input type="text" placeholder="Enter your address"><br>
+                <label id="phoneLable" for="P.No">Phone Number:</label>
+                <input id="phone" type="number" placeholder="Enter Your Number">
+            </div>
+            <div class="d2">
+                <label for="extra">Interest:</label>
+                <input type="checkbox" name="interest" value="sports"> Sports
+                <input type="checkbox" name="interest" value="movies"> Movies
+                <input type="checkbox" name="interest" value="vgames"> Video Games<br>
+                <label for="color">Favourite Colour:</label>
+                <input type="color" name="color" value="#ff0000">
+            </div>
+            <button type="button" onclick="validateForm()">Submit</button>
+        </form>
+    </div>
+    <script>
+        function validateForm(){
+            const phone=document.getElementById('phone');
+
+            const phoneValue=phone.value;
+
+            if(phoneValue.length<10 || phoneValue.length>10){
+                alert('Phone Number should be of 10 digits');
+            }
+            else{
+                alert('Form Submitted Successfully');
+            }
+        }
+    </script>
+</body>
+
+</html>
