@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var date=new Date();
+        let hour=date.getHours();
+        let minute=date.getMinutes();
+        let second=date.getSeconds();
+        let welcome;
+
+        document.write("Current Time: "+hour+":"+minute+":"+second+"<br>");
+        if(second<20){
+            welcome="Good Morning";
+        }
+        else if(second<40){
+            welcome="Good Day";
+        }
+        else{
+            welcome="Good Evening";
+        }
+        document.write(welcome);
+    </script>
+</body>
+</html>
